@@ -1,0 +1,18 @@
+---
+title: "Introduction to R"
+author: "Amit Dhakulkar"
+date: "03/04/2024"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+We will follow this tutorial for initial parts
+
+<https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf>
+
+<https://intro2r.com/>

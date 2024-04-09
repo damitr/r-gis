@@ -1,0 +1,369 @@
+---
+title: "Introduction to R"
+author: "Amit Dhakulkar"
+date: "07/04/2024"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+We will follow this tutorial for initial parts
+
+[\<https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf>](https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf){.uri}
+
+<https://intro2r.com/>
+
+# R programming language
+
+R is a programming language developed by statisticians. It is a bit different than other tools which have a graphical user-interface (GUI). One of the major differences is that R is command line based that is to say the input to R has to be given in the form of text.
+
+Though this might feel a bit intimidating, especially if you do not have a coding experience, but once you cover the basics you will feel right at home. The learning curve is steep but the rewards are immense. R is very flexible and has a very large library of statistical packages which can be combined easily for our GIS needs. Also R has substantial documentation capabilities.
+
+## R Studio Interface
+
+R studio is a "dashboard" for the R engine. R Studio provides a graphical user interface (GUI) with various "views" of the variables, plots, files, packages, commands, environment, datasets as well as editor to write R scripts and R markdown files. R Studio also has inbuilt help and tutorials for various commands and packages. You can also save a session so you can begin from where you left.
+
+For this workshop we will work through this R markdown file which has both commands and instructions.
+
+## Packages in R
+
+This documentation was itself written in R, using a documentation tool within R known as the R markdown. It can also create presentations!
+
+Also, for this workshop we will use the very useful and friendly R
+
+Studio environment. We will first start with installing the R markdown
+
+package. To install any package use the command
+
+```{r eval=FALSE}
+
+install.packages("rmarkdown")
+
+```
+
+Now you know how to install new packages in R! We will install other packages as required. To get help on any package you can click and search in the Help window in the Viewer part of R Studio.
+
+Install following packages `tidyverse,` `sf` using the above command. We will get several packages with `tidyverse` including `ggplot2`. If any other packages are required we will install them later.
+
+## R commands
+
+We type commands in R at the window known as the console. You will have the \\\> as prompt. All the messages pertaining to the command execution, including the error messages, will appear here. If the output of the command is a graphic, it will appear in the `Viewer` window. Similarly any data sets and their summaries will appear in the `Environment` window.
+
+simple commands.
+
+```{r echo=TRUE}
+
+5 + 3
+```
+
+Try these commands and see if the output is correct.
+
+```{r eval = FALSE}
+5*8
+
+```
+
+```{r eval = FALSE}
+
+5^8
+
+```
+
+## Data types in R
+
+Data types can be defined dynamically in R.
+
+## Numeric
+
+```{r}
+
+x <- 8
+y <- 5
+
+x <- 50
+
+print(x)
+
+z <- x + y 
+
+w <- z + z
+
+w
+
+number <- 5.7
+
+number 
+
+print(class(number))
+
+print(number)
+
+```
+
+Look at how the value `5.7` is assigned to a variable `number.`
+
+With the `class()` command we can find out the data type of any
+
+variable.
+
+## Integer
+
+```{r}
+
+integer_value <- 10L 
+
+integer_value2 <- 10
+
+# The 'L' suffix indicates an integer
+
+print(class(integer_value))
+
+print(class(integer_value2))
+
+print(integer_value)
+
+print(integer_value2)
+
+```
+
+The `#` character is used to indicate a comment in a R command. Anything that appears after the `#` will not be read by R engine and hence will not be executed. When debugging a complex code this is a useful feature.
+
+Also, while writing any R code (or any other software code for that matter) it is always good practice to write comments to tell the reader (and yourself in the future) to understand what the code does.
+
+## Character
+
+```{r}
+
+char_value <- "Hello, World!"
+
+char <- "a"
+
+char2 <- "9"
+
+print(class(char_value))
+
+print(class(char2))
+
+print(char_value)
+
+```
+
+## Logical/Boolean
+
+```{r}
+
+bool_value <- TRUE
+
+x < y 
+
+
+print(class(bool_value))
+
+print(bool_value)
+
+```
+
+## Vectors
+
+```{r}
+
+numeric_vector <- c(1, 2, 3, 4, 5)
+
+numeric_vector
+
+character_vector <- c("apple", "banana", "orange")
+
+character_vector
+
+print(class(numeric_vector))
+
+print(numeric_vector)
+
+print(class(character_vector))
+
+print(character_vector)
+
+```
+
+## Data Frame
+
+```{r}
+
+df <- data.frame(
+
+Name = c("Alice", "Bob", "Charlie"),
+
+Age = c(25, 30, 28),
+
+Married = c(TRUE, FALSE, TRUE),
+
+Place = c("Mumbai", "Delhi", "Bangalore")
+
+)
+
+print(class(df))
+
+df
+
+```
+
+There are several other datatypes, but we will use mostly these above data types in the workshop.
+
+## Making lists or vectors
+
+Using the `combine` or `c` command we can make lists easily in R.
+
+Suppose you want to make a list of five common fruits (mango, papaya, banana, apple and orange) and name it `common_fruits`, we will use the following command:
+
+```{r echo=TRUE}
+
+common_fruits <- c("mango", "papaya", "banana", "apple", "banana")
+
+common_fruits
+
+fruit_length <- 
+  
+sorted_fruits <- 
+
+
+```
+
+⁉️ What output do you expect when you type `common fruits` to console? **How will you check the data type of `common_fruits` ? Use `length()` function to find out how many elements are present. Use `sort()`** command to sort the entries and save it to another variable `common_fruits_sorted`. Use`help(sort)` find out how to sort in reverse order.
+
+## Logical Operations
+
+Logical operations allow us to determine truth value of a condition or a
+
+comparison. The logical operators are
+
+-   IS EQUAL TO `==`
+
+    ```{r}
+
+    x == y
+
+    x == x
+
+    x != x
+
+    ```
+
+-   NOT EQUAL TO `!=`
+
+-   AND `&`
+
+    ```{r}
+
+    (x > y) & (y > z) 
+    ```
+
+-   OR `|`
+
+-   GREATER THAN `>`
+
+-   LESS THAN `<`
+
+-   GREATER THAN EQUAL TO `>=`
+
+-   LESS THAN EQUAL TO `<=`
+
+These operators can be used in combination to create complex filters to
+
+bring out the required data. Let us consider some simple examples.
+
+```{r echo = FALSE}
+
+1 == 1
+
+```
+
+Run the following commands and check their putput
+
+```{r echo=TRUE}
+
+1 != 2
+
+1 < 2
+
+1 <= 1
+
+1 > 0
+
+1 >= -9
+
+```
+
+⁉️ Create two variables `a \<- 5` and `b \<- 7`. Check the output of each logical operator for these variables. Check output of logical operators with `a+b` and `a-b`. Use `seq()` command to generate a list of (a) first fifty integers, (b) only odd numbers in first 100 numbers.
+
+# Basic Functions
+
+## Combine
+
+To create lists by combining elements.
+
+```{r}
+
+z <- c(2, 4, 16, 32, 64, 128, 256, 512, 1024)
+```
+
+## Sequence
+
+To generate sequences `from` a number `to` a number either in increments of 1 or `by` given increments
+
+```{r}
+
+1:8
+1.1:8
+seq(1, 30, by = 2)
+```
+
+## Scan
+
+Suppose we want to enter scores by hand, now instead of typing out the vector as a single entity, we can ask R to take input one by one. This function might be useful when we are taking data from a live feed.
+
+    2    4    8   16   32   64  128  256  512 1024
+
+```{r}
+wt <- scan()
+
+wt
+```
+
+## Replicate
+
+This function allows replicating a number certain number of times. Syntax is `rep(3,7)` meaning the first number 3 will be repeated 7 times, while rep(7,3) will give number 7 repeated 3 times. If the repeat is not an integer, it will take the value of nearest integer.
+
+```{r}
+rep(3,7)
+rep(7,3)
+rep(1.1,6)
+rep(3,2.5)
+```
+
+## Dataframe Function
+
+A dataframe is a list of vectors and or factors of the same length which are related across rows.
+
+## Stem plot Function
+
+Stem plot was invented by John Tukey,
+
+```{r}
+
+library(datasets)
+data("iris")
+
+str(iris)
+```
+
+Now let us look at stem plot with this data set.
+
+```{r}
+stem(iris$Sepal.Width)
+hist(iris$Sepal.Width)
+
+```

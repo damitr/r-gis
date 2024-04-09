@@ -1,0 +1,110 @@
+---
+title: "Working with Dataframes"
+author: "Amit Dhakulkar"
+date: "07/04/2024"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Dataframe Function
+
+A `dataframe` is a list of vectors and or factors of the same length which are related across rows.
+
+We have earlier seen how to make a dataframe using `c()` function. Data frames are one of the most versatile data objects in R. Data frames allow us to combine various types of data into a single object. Using R functions we can explore data frames, filter and group data and manipulate (in the right manner 😀) data to get desired results.
+
+R has several inbuilt datasets which we can use to learn about its functions.
+
+## Packages
+
+Let us install the required packages. First we will install various dataset packages.
+
+```{r}
+
+# packages for datasets 
+install.packages("dslabs")
+install.packages("MASS")
+install.packages("LearnBayes")
+
+
+```
+
+We will also install another package \`tidyverse\`. The core tidyverse includes the packages that you're likely to use in
+everyday data analyses. There are eight packages in \`tidyverse\`, but we will be primarily using these three packages initially.
+
+-   \`ggplot2\` (grammar of graphics for creating graphics)
+
+-   \`dplyr\` ( grammar of data manipulation, providing a consistent set of verbs that solve the most common data manipulation challenges)
+
+-   \`tidyr\` (tidyr provides a set of functions that help you get to tidy data. Tidy data is data with a consistent form: in brief, every variable goes in a column, and every column is a variable.)
+
+Tidyverse provides improved replacements for some base R functions.
+
+More information at <https://www.tidyverse.org/>
+
+```{r}
+
+
+# packages for various functions 
+
+install.packages("tidyverse")
+
+# tidyvese is a collection of packages which provide a variety of functions to explore, manipulate and visualise data. 
+
+```
+
+Now installing packages is the first step. To use the packages we need to load them into R. For loading a package we use the \`library()\` function.
+
+```{r}
+
+library(tidyverse)
+library(LearnBayes)
+
+
+```
+
+Now within the `LearnBayes` we have several datasets. To see the datasets in a library we will use `data()`
+command. But using use `data()` will give **all** the datasets installed on your R system. 
+
+To see a datasets in a specific library we specify to `data()` that we want only this library.
+
+```{r}
+
+
+data(package = "LearnBayes")
+```
+
+This command will list all the datasets in the `LearnBayes` library. We will use some of the datasets to explore. We will use the dataset `studentdata`. To load this dataset we use `data()` command
+
+```{r}
+
+data("studentdata")
+
+```
+
+To "see" how this dataset is structured there are several commands that we can use. Let us start with the `str()` command which shows us the structure of a dataframe.
+
+
+# Exploratory data analysis
+
+## Stem plot Function
+
+Stem plot was invented by John Tukey,
+
+```{r}
+
+library(datasets)
+data("iris")
+
+str(iris)
+```
+
+Now let us look at stem plot with this data set.
+
+```{r}
+stem(iris$Sepal.Width)
+hist(iris$Sepal.Width)
+
+```

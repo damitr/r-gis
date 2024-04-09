@@ -1,0 +1,14 @@
+"0","df <- data.frame(
+
+Name = c(""Alice"", ""Bob"", ""Charlie""),
+
+Age = c(25, 30, 28),
+
+Married = c(TRUE, FALSE, TRUE)
+
+Place = c(""Mumbai"", ""Delhi"", ""Bangalore"")
+"
+"2","Error: unexpected symbol in:
+""
+Place""
+"

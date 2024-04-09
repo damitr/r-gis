@@ -1,0 +1,9 @@
+install.packages("LearnBayes")
+
+data("studentdata")  # Load the students dataset from MASS package
+
+str(studentdata)
+
+
+
+
